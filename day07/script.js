@@ -1,0 +1,98 @@
+
+var selectedRow = null;
+function onFormSubmit() {
+var formData = readFormData();
+if(isValid(name, age, mobile, e-mail id,course, place)){
+    alert("Your details are saved Sucessfully........");
+clear form();
+  }
+ 
+function readFormData() {
+  var formData = {};
+  formData["Name"] = document.getElementById("Name").value;
+  formData["Age"] = document.getElementById("Age").value;
+  formData["Mobile"] = document.getElementById("Mobile").value;
+  formData["E-mail id"] = document.getElementById("E-mail id").value;
+  formData["Course"] = document.getElementById("Course").value;
+  formData["Place"] = document.getElementById("Place").value;
+  return formData;
+}
+function resetForm() {
+  document.getElementById("Name").value = "";
+  document.getElementById("Age").value = "";
+  document.getElementById("Mobile").value = "";
+  document.getElementById("E-mail id").value = "";
+  document.getElementById("Course").value = "";
+  document.getElementById("Place").value = "";
+  selectedRow = null;
+}
+function insertNewRecord(data) {
+  var table = document
+    .getElementById("list")
+    .getElementsByTagName("tbody")[0];
+  var newRow = table.insertRow(table.length);
+  cell1 = newRow.insertCell(0);
+  cell1.innerHTML = data.Name;
+  cell2 = newRow.insertCell(1);
+  cell2.innerHTML = data.Age;
+  cell3 = newRow.insertCell(2);
+  cell3.innerHTML = data.Mobile;
+  cell4 = newRow.insertCell(3);
+  cell4.innerHTML = data.E-mail id;
+  cell5 = newRow.insertCell(4);
+  cell5.innerHTML = data.Course;
+  cell6 = newRow.insertCell(5);
+  cell6.innerHTML = data.Place;
+  cell7 = newRow.insertCell(6);
+  cell7.innerHTML = `<a onClick="onEdit(this)">Update</a><a onClick="onDelete(this)">Delete</a>`;
+}
+function onEdit(td)
+{if(confirm("Are you upadate your details")){
+selectedRow=td.parentElement.parentElement;  
+document.getElementById("Name").value=selectedRow.cells[0].innerHTML;
+document.getElementById("Age").value=selectedRow.cells[1].innerHTML;
+document.getElementById("Mobile").value=selectedRow.cells[2].innerHTML;
+document.getElementById("E-mail id").value=selectedRow.cells[3].innerHTML;
+document.getElementById("Course").value=selectedRow.cells[4].innerHTML;}
+document.getElementById("Place").value=selectedRow.cells[5].innerHTML;}
+}
+function updateRecord(formData)
+{
+  alert("Your form updated sucessfully.......")
+selectedRow.cells[0].innerHTML=formData.Name;
+selectedRow.cells[1].innerHTML=formData.Age;
+selectedRow.cells[2].innerHTML=formData.Mobile;
+selectedRow.cells[3].innerHTML=formData.E-mail id;
+selectedRow.cells[4].innerHTML=formData.Course;
+selectedRow.cells[5].innerHTML=formData.Place;
+}
+function onDelete(td)
+{
+if(confirm("are you want to delete this record")){
+  row=td.parentElement.parentElement;
+  document.getElementById("faclist").deleteRow(row.rowIndex);
+  resetForm();
+}
+}
+
+function isValid(){
+
+var a=document.getElementById("Name").value;
+var b = document.getElementById("Age").value;
+var c= document.getElementById("Mobile").value;
+var d= document.getElementById("E-mail id").value;
+var e= document.getElementById("Course").value;
+var f= document.getElementById("Place").value;
+if(validateName(a)){return true}
+else
+{return false}
+//if(a==""|| a==null ){return false;}
+//if(b==""|| b==null ){return false;}
+//if(c==""|| c==null ){return false;}
+//if(d==""|| d==null ){return false;}
+//if(e==""|| e==null ){return false;}
+}
+function validateName(name) {
+  const namePatten= /^[a-zA-Z\s'-]+$/;
+  return namePatten.test(name);
+}

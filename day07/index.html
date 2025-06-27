@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="script.css"></script>
+    <title>Personal details</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <td>
+          <form onsubmit="event.preventDefault();onFormSubmit();">
+            <h2>Personal Details</h2>
+            <div>
+              <label for="name">Name</label><br />
+              <input
+                type="text"
+                class="Name"
+                id="Name"
+                placeholder="Enter the Name"
+              />
+            </div>
+            <div>
+              <label for="Age">Age</label><br />
+              <input
+                type="number"
+                class="Age"
+                id="Age"
+                placeholder="Enter the Age"
+              />
+            </div>
+            <div>
+              <label for="mobile">Mobile</label><br />
+              <input
+                type="number"
+                class="Mobile"
+                id="Mobile"
+                placeholder="Enter the mobile number"
+              />
+            </div>
+            <div>
+              <label for="e-mail Id">E-mail Id</label><br />
+              <input
+                type="text""number""characters"
+                class="e-mail Id"
+                id="e-mail Id"
+                placeholder="Enter a E-Mail Id"
+              />
+            </div>
+            <div>
+              <label for="Course">Course</label><br />
+              <input
+                type="text"
+                class="Course"
+                id="Course"
+                placeholder="Enter your Course"
+              />
+            </div>
+            <div>
+              <label for="place">Place</label><br />
+              <input
+                type="text"
+                class="place"
+                id="place"
+                placeholder="Enter your place"
+              />
+            </div>
+            <div>
+               <input type="reset" value="Clear" class="clear-btn">
+               <input type="button" value="Exit" class="exit-btn" onclick="window.close();">
+               <input type="submit" value="Submit" />
+            </div>
+            
+          </form>
+        </td>
+        <td>
+          <table
+            class="list"
+            id="list"
+            style="background-color: darkgoldenrod"
+          >
+          
+            <tbody></tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

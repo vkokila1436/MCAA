@@ -1,0 +1,24 @@
+function validateName(name) {
+  const namePatten= /^[a-zA-Z\s'-]+$/;
+  return namePatten.test(name);
+}
+function validateMobileNumber(mobileNumber) {
+  const mobilePatten= /^[6-9]\d{9}$/;
+  return mobilePatten.test(mobileNumber);
+}
+function containsOnlyDigits(str){
+  const regex= /^\d+$/;
+  return regex.test(str);
+}
+function containsOnlyAlphanumeric(str){
+  const regex= /^[a-zA-Z0-9]+$/;
+  return regex.test(str);
+}
+Explanation of regular Explanations:
+^:Asserts the start of the string.
+$:Asserts the end of the string.
+\d:Matches any digit (0-9).
+[a-zA-Z]:Matches any uppercase or lowercase alphabetic character.
+[a-zA-Z0-9]:Matches any uppercase or lowercase alphabetic character or any digit.
++:Matches one or more occurences of the preceding character or group.
+.test(str):A method of regular expression objects that tests for a match in a string and returns true or false.
